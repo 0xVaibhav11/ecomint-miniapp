@@ -1,8 +1,8 @@
-'use client';
-import { walletAuth } from '@/auth/wallet';
-import { Button, LiveFeedback } from '@worldcoin/mini-apps-ui-kit-react';
-import { useMiniKit } from '@worldcoin/minikit-js/minikit-provider';
-import { useCallback, useEffect, useState } from 'react';
+"use client";
+import { walletAuth } from "@/auth/wallet";
+import { Button, LiveFeedback } from "@worldcoin/mini-apps-ui-kit-react";
+import { useMiniKit } from "@worldcoin/minikit-js/minikit-provider";
+import { useCallback, useEffect, useState } from "react";
 
 /**
  * This component is an example of how to authenticate a user
@@ -21,7 +21,7 @@ export const AuthButton = () => {
     try {
       await walletAuth();
     } catch (error) {
-      console.error('Wallet authentication button error', error);
+      console.error("Wallet authentication button error", error);
       setIsPending(false);
       return;
     }
@@ -34,9 +34,9 @@ export const AuthButton = () => {
       if (isInstalled && !isPending) {
         setIsPending(true);
         try {
-          await walletAuth();
+          // await walletAuth();
         } catch (error) {
-          console.error('Auto wallet authentication error', error);
+          console.error("Auto wallet authentication error", error);
         } finally {
           setIsPending(false);
         }
@@ -49,11 +49,11 @@ export const AuthButton = () => {
   return (
     <LiveFeedback
       label={{
-        failed: 'Failed to login',
-        pending: 'Logging in',
-        success: 'Logged in',
+        failed: "Failed to login",
+        pending: "Logging in",
+        success: "Logged in",
       }}
-      state={isPending ? 'pending' : undefined}
+      state={isPending ? "pending" : undefined}
     >
       <Button
         onClick={onClick}
